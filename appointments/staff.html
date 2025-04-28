@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DAPPA DOGS :: admin</title>
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+@media screen and (max-width: 639px) {
+div.menuPnl{ display:none; }
+}
+
+
+
+
+/* 
+Generic Styling, for Desktops/Laptops 
+*/
+table { 
+  width: 100%; clear:both; 
+  border-collapse: collapse; 
+}
+/* Zebra striping */
+tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  color: white; 
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Name"; }
+	td:nth-of-type(2):before { content: "Email Address"; }
+	td:nth-of-type(3):before { content: "Password"; }
+	td:nth-of-type(4):before { content: "Address line 1"; }
+	td:nth-of-type(5):before { content: "Phone No."; }
+	td:nth-of-type(6):before { content: "Action"; }
+	
+	
+	
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+<div class="headerPnl">
+  <div class="mainDiv">
+  <div class="headerTop">
+  	<div class="dbord"><img src="images/dbordIco1.png" alt=""></div>
+  	<div class="logo"><img src="images/logo.png" alt=""></div>
+    <h1>Services</h1>
+    <br style="clear:both;">
+  </div>
+  <div class="logo"><img src="images/logo.png" alt=""></div>
+	<div class="menuPnl">
+      <ul>
+            <li><a href="#url">Dashboard</a> </li>
+            <li><a href="#url">Calendar</a> </li>
+            <li><a href="#url">Customers</a> </li>
+            <li><a href="#url">Messages</a></li>
+            <li><a href="#url">Reports</a></li>
+            <li><a href="#url">Promote</a></li>
+            <li><a href="#url">Settings</a> </li>
+            <li><a href="#url">Account</a> </li>
+        </ul>
+    </div>
+    <div class="middilePnl">
+   	  <div class="mainDiv">
+        <div class="bodycontent">
+        <div class="pageTopPnl">
+        	<div class="searchPnl"><input name="" type="text" /><input name="" type="submit" value="Search" /></div>
+            <div class="buttonPnl"><input name="" type="button" value="Add Customer" /> <input name="" type="button" value="Import Customers" /> <input name="" type="button" value="Send Marketing Email" /></div>
+        </div>
+		<table>
+            <thead>
+            <tr>
+                <th width="21%">Name</th>
+                <th width="22%">Email Address</th>
+                <th width="11%">Password</th>
+                <th width="24%">Address line 1</th>
+                <th width="12%">Phone No.</th>
+                <th width="10%">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Uttam Majumdar</td>
+                <td>mailuttam@webgrity.com</td>
+                <td>sdfh#df5f%</td>
+                <td>30B Lorem ipsum</td>
+                <td>0987654321</td>
+                <td><img src="images/edit.png" alt="" /> <img src="images/view-details.png" alt="" /> <img src="images/delete.png" alt="" /></td>
+            </tr>
+            <tr>
+                <td>Uttam Majumdar</td>
+                <td>mailuttam@webgrity.com</td>
+                <td>sdfh#df5f%</td>
+                <td>30B Lorem ipsum</td>
+                <td>0987654321</td>
+                <td><img src="images/edit.png" alt="" /> <img src="images/view-details.png" alt="" /> <img src="images/delete.png" alt="" /></td>
+            </tr>
+            </tbody>
+        </table>
+            
+            
+            
+        </div>
+        <div class="otherOptn">
+        	<h2>Other Option</h2>
+            <ul>
+       	    <li><a href="#url">Services</a></li>
+                <li><a href="#url">Staff</a></li>
+                <li><a href="#url">Salon</a></li>
+                <li><a href="#url">General Settings</a></li>
+                <li><a href="#url">Roster</a></li>
+            </ul>
+        </div>
+   	  </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

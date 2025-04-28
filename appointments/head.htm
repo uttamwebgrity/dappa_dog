@@ -1,0 +1,210 @@
+<?php
+if(!isset($path_depth) || trim($path_depth) == NULL)
+	$path_depth="../";
+
+
+include_once($path_depth . "includes/configuration.php");
+
+if(!isset($_SESSION['admin_login']) || $_SESSION['admin_login']!="yes"){
+
+	$_SESSION['redirect_to']=substr($_SERVER['PHP_SELF'],strpos($_SERVER['PHP_SELF'],"appointments/") + 13);
+   	$_SESSION['redirect_to_query_string']= $_SERVER['QUERY_STRING'];
+	
+    $_SESSION['message']="Please login to view this page!";
+	$general_func->header_redirect($general_func->admin_url."index.php");
+}
+
+
+
+$REQUEST_URI_ARRAY=array();
+
+$REQUEST_URI_ARRAY=explode("/",$_SERVER['REQUEST_URI']);
+
+
+$settings=array();
+
+$settings[]="salons.php";
+$settings[]="salons-new.php";
+$settings[]="salons-view.php";
+
+$settings[]="staffs.php";
+$settings[]="staffs-new.php";
+$settings[]="staffs-view.php";
+
+
+
+$settings[]="services.php";
+$settings[]="staff.php";
+$settings[]="roster.php";
+$settings[]="settings.php";
+$settings[]="grooming-type.php";
+
+
+$products[]="colors.php";
+$products[]="sizes.php";
+$products[]="suppliers.php";
+$products[]="manufacturers.php";
+
+
+$products[]="products-new.php";
+$products[]="products.php";
+$products[]="products-sell.php";
+
+
+//$general_func->site_url;
+
+?>
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$general_func->site_title?> :: Secure Area</title>
+<base href="<?=$general_func->admin_url?>" />
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="../includes/ajax-library.js"></script>
+<script language="javascript" type="text/javascript" src="../includes/validator.js"></script>
+<script language="javascript" type="text/javascript" src="../includes/jquery.js"></script>
+
+<!-- date picker -->
+<link rel="stylesheet" href="../date_picker/main.css">
+<script type="text/javascript" language="javascript" src="../date_picker/prototype-1.js"></script>
+<script type="text/javascript" language="javascript" src="../date_picker/prototype-base-extensions.js"></script>
+<script type="text/javascript" language="javascript" src="../date_picker/prototype-date-extensions.js"></script>
+<script type="text/javascript" language="javascript" src="../date_picker/behaviour.js"></script>
+<script type="text/javascript" language="javascript" src="../date_picker/datepicker.js"></script>
+<link rel="stylesheet" href="../date_picker/datepicker.css">
+<script type="text/javascript" language="javascript" src="../date_picker/behaviors.js"></script>
+<!-- // date picker -->
+<script type="text/javascript" src="<?=$general_func->site_url?>js/tooltip.js"></script>
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+<div class="headerPnl">
+  <div class="mainDiv"> <a href="home.php"><img src="../images/logo.png" alt="" class="logo"/></a>
+  <!--<img src="images/question.png" alt="" onClick="location.href='help.php'" class="headQues" />-->	
+	<div class="menuPnl">
+      <ul>
+      	<li><span>MENU</span>
+        	<ul>
+            	<li <?=basename($_SERVER['PHP_SELF'])=="home.php"?'class="active"':''?>><a href="home.php">Dashboard</a> </li>
+               	<li <?=basename($_SERVER['PHP_SELF'])=="calendar.php"?'class="active"':''?>><a href="calendar/calendar.php">Calendar</a> </li>
+                <li <?=basename($_SERVER['PHP_SELF'])=="customers.php"?'class="active"':''?>><a href="customers/customers.php">Customers</a> </li>
+              	<li><a style="cursor: pointer;">Pets</a>
+               		<ul>
+               			<li><a href="customers/breed.php">Breed</a></li>
+               			<li><a href="customers/vet.php">Vet</a></li>
+               			<li><a href="customers/breeding-status.php">Breeding Status</a></li>               			
+               			<li><a href="customers/pets.php">Pets</a></li>                   		
+                 	</ul>
+               	</li>
+               	<?php if($_SESSION['admin_access_level'] == 1 || in_array(7,$_SESSION['access_permission'])){?>
+               	<li><a style="cursor: pointer;">Messages</a>
+               		<ul>
+               			<!--<li><a href="messages/sms.php">SMS</a></li>
+                   		<li><a href="messages/email.php">Email</a></li> -->
+                   		<li><a href="messages/newsletter.php">Newsletter</a></li>
+                 	</ul>
+               	</li>
+               	<?php } if($_SESSION['admin_access_level'] == 1 || in_array(7,$_SESSION['access_permission'])){ ?>
+                <li><a style="cursor: pointer;">Reports</a>
+                	<ul>
+                   		<!--<li><a href="reports/appointment-schedule.php">Appointment Schedule</a></li>
+                        <li><a href="reports/business-summary.php">Business Summary</a></li>
+                        <li><a href="reports/customers-by-service.php">Customers By Service</a></li> 
+                        <li><a href="reports/customers.php">Customers</a></li>
+                        <li><a href="reports/customer-spend.php">Customer Spend</a></li>
+                   		<li><a href="reports/future-value.php">Future Value</a></li> 
+                   		<li><a href="reports/day-sheet.php">Day Sheet</a></li>
+                   		<li><a href="reports/staff-roster.php">Staff Roster</a></li>-->
+                        <li><a href="reports/customers.php">Customers</a></li>
+                        <li><a href="reports/staff-hours.php">Staff Hours</a></li>
+<!--Appointment Schedule
+Business Summary
+Customers
+Customer Spend
+Future Value
+Day Sheet
+Customers By Service
+Staff Roster
+Customers-->
+                    </ul>
+                </li>
+                <?php } ?>             
+               	<li <?=in_array(basename($_SERVER['PHP_SELF']),$products)?'class="active"':''?>><a style="cursor: pointer;">Products</a> 
+            		<ul>
+               			<li><a href="products/colors.php">Colours</a></li>
+                   		<li><a href="products/sizes.php">Sizes</a></li>
+                        <li><a href="products/suppliers.php">Suppliers</a></li>
+                        <li><a href="products/manufacturers.php">Manufacturers</a></li>                       
+                        <li><a href="products/products-new.php">Add Product</a></li> 
+                        <li><a href="products/products.php">Products</a></li>
+                        <?php if($_SESSION['admin_access_level'] == 1 || in_array(11,$_SESSION['access_permission'])){?>   
+                        <li><a href="products/orders.php">Orders</a></li>   
+                        <?php }?>                                     
+                       
+                 	</ul>
+               	</li>
+               	<?php if($_SESSION['admin_access_level'] == 1 || in_array(12,$_SESSION['access_permission'])){?>
+				<li <?=basename($_SERVER['PHP_SELF'])=="static-pages.php"?'class="active"':''?>><a style="cursor: pointer;">Static Pages</a>
+                	<ul>
+                 	<?php
+                 		$sql_static_pages="select id,link_name from static_pages order by display_order + 0 ASC ";
+						$result_static_pages=$db->fetch_all_array($sql_static_pages);
+						$total_static_pages=count($result_static_pages);
+                 	
+                 		for($static=0; $static<$total_static_pages; $static++){
+                 		?>	
+                 		<li><a href="static-pages/static-pages.php?s=<?=$result_static_pages[$static]['id']?>"><?=(isset($_REQUEST['s']) && $_REQUEST['s'] ==$result_static_pages[$static]['id'])?'<b>'.ucwords(strtolower($result_static_pages[$static]['link_name'])).'</b>':ucwords(strtolower($result_static_pages[$static]['link_name']))?></a></li>	
+                 		<?php 	
+                 		}
+                 		?>					
+                    </ul>
+                </li> 
+                <?php }
+                 if($_SESSION['admin_access_level'] != 3){
+                 ?> 	
+				<li <?=in_array(basename($_SERVER['PHP_SELF']),$settings)?'class="active"':''?>><a style="cursor: pointer;">Settings</a>
+               		<ul>
+                    	<?php if($_SESSION['admin_access_level'] == 1 || in_array(13,$_SESSION['access_permission'])){?>
+                    	<li><a href="settings/grooming-type.php">Grooming Type</a></li>
+                    	<?php }if($_SESSION['admin_access_level'] == 1){?>
+                        <li><a href="settings/services.php">Services</a></li> 
+                         <li><a href="settings/spa-treatments.php">Spa Treatments</a></li> 
+                        <?php } ?>
+                        <li><a href="settings/salons.php">Salon</a></li>
+                                             
+                        <li><a href="settings/staffs.php">Staff</a></li>
+                        <!--<li><a href="settings/roster.php">Roster</a></li>-->
+                        <?php if($_SESSION['admin_access_level'] == 1 || in_array(23,$_SESSION['access_permission'])){?>                       
+                        <li><a href="email-templates/index.php">Email Templates</a></li>
+                 		<?php } if($_SESSION['admin_access_level'] == 1){?>
+                        <li><a href="settings/settings.php">General Settings</a></li>
+                        <?php } ?>                        
+                    </ul>
+                </li>
+                <?php } ?>             
+        	</ul>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="welcomeName"><span>Welcome, <?=$_SESSION['admin_name']?></span>
+   	  <div class="dd">
+      	<ul>  
+      		<li><a href="<?=$general_func->site_url?>" target="_blank">Main Website</a></li>     
+      		<?php if($_SESSION['admin_access_level'] == 1){?>      		   
+            <li><a href="settings/access-matrix.php">Access Permission</a></li>
+           	<?php } ?>
+            <li><a href="help.php">Help</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    </div>
+    <div class="middilePnl">
+   	  <div class="mainDiv">
+		<div class="bodycontent">

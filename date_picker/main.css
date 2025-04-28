@@ -1,0 +1,62 @@
+/* Tag styles */
+
+h3 {
+	/*padding:			1px;
+	border:				1px solid #663300;
+	background-color:	#DDDDAA;*/
+}
+img {
+	border: 0;
+}
+
+/* Layout */
+#page {
+	width:				700px;
+	margin:				10px auto 0 auto;
+	padding:			0;
+}
+#content {
+	background-color:	#FFFFFF;
+	border-left:		1px solid #663300;
+	border-right:		1px solid #663300;
+	border-bottom:		1px solid #663300;
+	padding:			10px;
+}
+
+/* Widgets */
+textarea.richtext		{ width: 673px; height: 400px; }
+input.timepicker		{ width: 75px; border: 1px solid #999999; }
+input.datepicker		{ border: 1px solid #CDE6EC;
+    border-radius: 5px 5px 5px 5px;
+    color: #88B2BD;
+    font: 12px/20px Arial,Helvetica,sans-serif;
+    height: 34px;
+    outline: medium none;
+    padding: 1px 5px;
+    width: 160px; }
+input.datetimepicker,
+input.datetimepicker_es	{ border: 1px solid #CDE6EC;
+    border-radius: 5px 5px 5px 5px;
+    color: #88B2BD;
+    font: 12px/20px Arial,Helvetica,sans-serif;
+    height: 34px;
+    outline: medium none;
+    padding: 1px 5px;
+    width: 300px; }
+input.colorpicker		{ border: 1px solid #CDE6EC;
+    border-radius: 5px 5px 5px 5px;
+    color: #88B2BD;
+    font: 12px/20px Arial,Helvetica,sans-serif;
+    height: 34px;
+    outline: medium none;
+    padding: 1px 5px;
+    width: 300px; }
+input.filechooser		{border: 1px solid #CDE6EC;
+    border-radius: 5px 5px 5px 5px;
+    color: #88B2BD;
+    font: 12px/20px Arial,Helvetica,sans-serif;
+    height: 34px;
+    outline: medium none;
+    padding: 1px 5px;
+    width: 300px; }
+.ratingcontainer { float: right; text-align: right; }

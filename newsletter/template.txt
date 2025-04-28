@@ -1,0 +1,136 @@
+
+1. Salon admin login information 
+
+Hello #salon_name#,
+
+Welcome to Dappadogs booking system.
+
+Please use the following access credential to <a href="#customer_login_link#">login</a> into the online booking system:
+
+Username: #Username# 
+Password: #password# 
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+=================================
+
+2. Staff login information 
+
+Hello #Staff_name#,
+
+Welcome to Dappadogs grooming team!
+
+We are happy to depute you as our staff in the #salon_name#.
+
+Please use the following access credential to <a href="#staff_login_link#">login</a> our online booking system:
+
+
+Username: #Username# 
+Password: #password# 
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+====================================
+
+3.Email to Staff after assigned a Roster to him
+
+Hello #Staff_name#,
+
+Roster has been added/modified in your job.
+
+Please <a href="#staff_roster_link#">login</a> to the online booking system to know your own job.
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+====================================
+
+4.Email to Staff after assigned a Appointment/Ticket
+
+Hello #Staff_name#/#salon_name#,
+
+A releavnt new job has been scheduled in the job roster.
+
+Please <a href="#staff_job_assigned_link#">login</a> to the online booking system to know your own job.
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+====================================
+
+5. Appointment cancellation email to staff
+
+Hello #Staff_name#,
+
+An appointment has been cancelled from your job schedule.
+
+Please <a href="#staff_job_cancellation_link#">login</a> to the online booking system to know in details.
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+
+====================================
+
+6. Welcome message to dog owner with login information after registration
+
+
+Hello #dog_owner_name#,
+
+Welcome to Dappadogs online appointment booking system!
+
+
+Please use the following access credential to <a href="#customer_login_link#">login</a> our online booking system and book your appointment easily:
+
+
+Username: #Username# 
+Password: #password# 
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+==================================
+
+7. Appointment confirmation email to dog owner
+
+Hello #dog_owner_name#,
+
+Your appointment has been successfully booked!
+
+Please <a href="#customer_login_link#">login</a> to the online booking system to know in details.
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+=================================
+
+8. Appointment cancellation email to dog owner
+
+Hello #dog_owner_name#,
+
+Your appointment has been cancelled!
+
+Please <a href="#customer_login_link#">login</a> to the online booking system to know in details.
+
+In case of any difficulities, please feel free to <a href="#contact_link#">contact<a>
+
+Thanks & Regards,
+Dappadogs Team
+
+
